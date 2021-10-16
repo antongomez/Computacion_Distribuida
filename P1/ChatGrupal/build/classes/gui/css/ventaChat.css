@@ -1,0 +1,57 @@
+.mnx{
+    -fx-text-fill: black;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 16px;
+    -fx-label-padding: 5;
+    -fx-background-radius: 10;
+}
+
+.mnxEnviado{
+    -fx-background-color: #99ff99;
+}
+
+.mnxRecibido{
+    -fx-background-color: #ffd38c;
+}
+
+.list-cell {
+    -fx-animated: true;
+    -fx-padding: 4;
+}
+
+.list-view {
+    -fx-background-insets: 0;
+    -fx-background-color: #e3ffd9;
+}
+
+.list-view:focused{
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.list-cell{
+    -fx-background: #e3ffd9;
+}
+
+.button {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-background-radius: 0;
+    -fx-cursor: HAND;
+}
+
+#btnEnviar{
+    -fx-background-radius: 20;
+    -fx-background-color: #aed99e;
+}
+
+#labelChat {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+#labelPrincipal{
+    -fx-text-fill: #014200;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 30px;
+}

@@ -1,0 +1,15 @@
+CompilarJavaFX.txt
+*.pdf
+
+P1/*.pdf
+P2/*.pdf
+P3/*.pdf
+
+P1/*.zip
+P2/*.zip
+P3/*.zip
+
+# Cousas especificas
+P2/hello
+P1/ChatGrupal_Java
+/P2/MonteCarlo_1/build/

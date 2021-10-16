@@ -1,0 +1,16 @@
+.label{
+    -fx-text-fill: #014200;
+}
+
+#labelPrincipal{
+    -fx-font-family: "Georgia";
+    -fx-font-size: 20px;
+}
+
+.button {
+    -fx-text-fill: #014200;
+    -fx-font-size: 14px;
+    -fx-background-color: #aed99e;
+    -fx-background-radius: 50;
+    -fx-cursor: HAND;
+}

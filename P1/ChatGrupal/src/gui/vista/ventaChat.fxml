@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="550.0" stylesheets="@../css/ventaChat.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controlador.VentaChatControlador">
+    <children>
+        <VBox alignment="BOTTOM_CENTER" layoutX="170.0" layoutY="84.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane VBox.vgrow="NEVER">
+                    <children>
+                        <HBox maxHeight="80.0" minHeight="80.0" prefHeight="80.0" style="-fx-background-color: #aed99e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label alignment="TOP_LEFT" contentDisplay="TOP" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" HBox.hgrow="NEVER">
+                                    <graphic>
+                                        <ImageView fx:id="labelChat" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../recursos/ImaxeChat.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                                <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label fx:id="labelPrincipal" alignment="CENTER" prefHeight="80.0" prefWidth="500.0" text="Chat Multicast" />
+                                    </children>
+                                </HBox>
+                                <Label fx:id="labelNomeUser" alignment="CENTER" contentDisplay="TOP" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" text="antongomez" HBox.hgrow="NEVER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../recursos/User.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+                <ListView fx:id="chatPane" prefHeight="800.0" prefWidth="545.0" VBox.vgrow="ALWAYS" />
+                <AnchorPane style="-fx-background-color: #aed99e;" VBox.vgrow="NEVER">
+                    <children>
+                        <HBox alignment="BOTTOM_CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <TextArea fx:id="txtareaMensaxe" minHeight="50.0" prefWidth="500.0" promptText="Mensaxe" style="-fx-background-color: red;" HBox.hgrow="ALWAYS">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </TextArea>
+                                <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="NEVER">
+                                    <children>
+                                        <Button fx:id="btnEnviar" mnemonicParsing="false" onAction="#actBtnEnviar">
+                                            <graphic>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../recursos/Enviar.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <padding>
+                                        <Insets bottom="5.0" top="5.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
