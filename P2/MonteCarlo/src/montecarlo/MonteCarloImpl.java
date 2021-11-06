@@ -2,7 +2,8 @@ package montecarlo;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.List;
+import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -18,8 +19,11 @@ public class MonteCarloImpl extends UnicastRemoteObject implements MonteCarloInt
     public Integer calcularProporcion(int n) throws RemoteException {
         int conta = 0;
 
+        Date d = new Date();
+        Random r = new Random(d.getTime());
+
         for (int i = 0; i < n; i++) {
-            if (Par.xerarParAleatorio().estaCircunferenciaUnidade()) {
+            if (Par.xerarParAleatorio(r).estaCircunferenciaUnidade()) {
                 conta++;
             }
         }

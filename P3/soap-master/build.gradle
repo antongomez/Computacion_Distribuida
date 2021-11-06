@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.cxf:cxf-rt-frontend-jaxws:3.3.5'
+    implementation 'org.apache.cxf:cxf-rt-transports-http-jetty:3.3.5'
+    implementation 'com.sun.xml.ws:jaxws-ri:2.3.2'
+    implementation 'com.sun.activation:jakarta.activation:1.2.2'
+}

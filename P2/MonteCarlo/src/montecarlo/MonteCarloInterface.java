@@ -1,7 +1,6 @@
 package montecarlo;
 
 import java.rmi.*;
-import java.util.List;
 
 /**
  *

@@ -11,20 +11,19 @@ import montecarlo.MonteCarloInterface;
  */
 public class AproxPI extends Thread {
 
-    
     private MonteCarloInterface h;
     private int proporcion;
     private final Integer nCalculos;
 
     public AproxPI(MonteCarloInterface h, Integer nCalculos) {
         this.h = h;
-        this. nCalculos = nCalculos;
+        this.nCalculos = nCalculos;
     }
 
     @Override
-    public void run() {   
+    public void run() {
         try {
-            proporcion = h.calcularProporcion(nCalculos); 
+            proporcion = h.calcularProporcion(nCalculos);
         } catch (RemoteException ex) {
             Logger.getLogger(AproxPI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -37,7 +36,5 @@ public class AproxPI extends Thread {
     public Integer getnCalculos() {
         return nCalculos;
     }
-    
-    
 
 }
