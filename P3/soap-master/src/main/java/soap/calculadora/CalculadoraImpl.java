@@ -2,6 +2,7 @@ package soap.calculadora;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.jws.WebService;
@@ -67,11 +68,20 @@ public class CalculadoraImpl implements Calculadora {
 
     @Override
     public float mediana(int[] nums) {
+        ArrayList<Integer> lista = new ArrayList<>(nums.length);
+        
+        for(int i = 0; i < nums.length; i++){
+            lista.add(nums[i]);
+        }
+        Collections.sort(lista);
+        
+        System.out.println(lista);
+        
         float med = nums.length / (float) 2;
         if ((nums.length % 2) == 0) {
-            return (nums[(int) med] + nums[((int) med) - 1]) / (float) 2;
+            return (lista.get((int) med) + lista.get(((int) med) - 1)) / (float) 2;
         } else {
-            return nums[(int) Math.floor(med)];
+            return lista.get((int) Math.floor(med));
         }
     }
 

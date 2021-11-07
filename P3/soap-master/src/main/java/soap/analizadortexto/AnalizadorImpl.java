@@ -15,7 +15,7 @@ public class AnalizadorImpl implements Analizador {
 
     @Override
     public int contar_palabras(String cadea) {
-        return cadea.split(" ").length;
+        return eliminarEspazosSobrantes(cadea).split(" ").length;
     }
 
     @Override
@@ -113,5 +113,18 @@ public class AnalizadorImpl implements Analizador {
         }
 
         return novaCadea;
+    }
+    
+    private String eliminarEspazosSobrantes(String cadea){
+        char ant = ' ';
+        String cadeaSenEspazos = ""; 
+        for(int i = 0; i < cadea.length(); i++){
+            if(!((cadea.charAt(i) == ' ') && (ant == ' '))){
+                cadeaSenEspazos += cadea.charAt(i);
+            }
+            ant = cadea.charAt(i);
+        }
+        System.out.println(cadeaSenEspazos);
+        return cadeaSenEspazos;
     }
 }
