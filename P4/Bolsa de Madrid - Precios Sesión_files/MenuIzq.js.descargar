@@ -1,0 +1,90 @@
+String.prototype.endsWidth = function (cad) {
+    return (this.substr(this.length - cad.length) == cad);
+}
+var CambMargPorDIV = function(/*selector_x*/) {
+    var indHoja, indRegla, indArgs, Hojas, Regla;
+    
+    if ((Hojas=document.styleSheets) && (Hojas.length>0) && (Hojas[0].rules)) {
+        for (indHoja=0; indHoja<Hojas.length; ++indHoja) {
+            if (!Hojas[indHoja].rules) continue;
+            for (indRegla=0; indRegla<Hojas[indHoja].rules.length; ++indRegla) {
+                Regla = Hojas[indHoja].rules[indRegla];
+                for (indArgs=0;indArgs<arguments.length;++indArgs) {
+                    if (Regla.selectorText == arguments[indArgs]) {
+                        if (Regla.style.marginTop != "") {
+                            $("DIV"+Regla.selectorText).each(function() {
+                                if (this.currentStyle && this.currentStyle.marginTop.charAt(0) != "0" && 
+                                    this.currentStyle.marginTop != "auto")
+                                    $(this).before("<div style='width: 100%; height: "+this.currentStyle.marginTop+"'></div>");
+                            });
+                            Regla.style.marginTop = "";
+                        }
+                        if (Regla.style.marginBottom != "") {
+                            $("DIV"+Regla.selectorText).each(function() {
+                                if (this.currentStyle && this.currentStyle.marginBottom.charAt(0) != "0" && 
+                                    this.currentStyle.marginBottom != "auto")
+                                    $(this).after("<div style='width: 100%; height: "+this.currentStyle.marginBottom+"'></div>");
+                            });
+                            Regla.style.marginBottom = "";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+var MenuIzqLoad = function (conAjax,site) {
+    var menu = $("DIV.MenuIzq");
+    var cargaMenu = function (menuSels) {
+        $("DIV.MenuLink", menu).click(
+            function (event) {
+                var l = $("A", this);
+                var URL = l.attr("href"), Target = l.attr("target");
+                event.preventDefault();
+
+                if (URL.endsWidth('#')) {
+                    var subMenu = $(this).parent().next(".MenuSubOp");
+
+                    if (subMenu.length > 0) {
+                        if (subMenu.is(":hidden")) {
+                            subMenu.slideDown("slow");
+                            $(this).add($(this).parent()).addClass("On");
+                            $(this).add($(this).parent()).removeClass("Off");
+                        } else {
+                            subMenu.slideUp("slow");
+                            $(this).add($(this).parent()).addClass("Off");
+                            $(this).add($(this).parent()).removeClass("On");
+                        }
+                    }
+                } else {
+                    window.open(URL, Target);
+                }
+                return (false);
+            }
+        );
+        /* Crea margenes que no se pueden indicar en el CSS por un problema con IE8 */
+        CambMargPorDIV(".MenuDiv.Menu1", ".Blanco.MenuGrupo");
+
+        $("DIV.MenuSubOp", menu).hide();
+
+        for (var ind = 0; ind < MenuIzqLoad_MenusSel.length; ++ind) {
+            $("DIV.MenuDiv[menu='" + MenuIzqLoad_MenusSel[ind] + "']", menu).children().andSelf().addClass("On Sel");
+            $("DIV.MenuSubOp[menu='" + MenuIzqLoad_MenusSel[ind] + "']", menu).show();
+        }
+
+        for (var ind = 0; ind < MenuIzqLoad_MenusDespl.length; ++ind) {
+            $("DIV.MenuDiv[menu='" + MenuIzqLoad_MenusDespl[ind] + "']", menu).children().andSelf().addClass("On");
+            $("DIV.MenuSubOp[menu='" + MenuIzqLoad_MenusDespl[ind] + "']", menu).show();
+        }
+
+        $.cookie("menuIzq", "JS", { path: '/', lax: true });
+    };
+
+    if (conAjax) {
+        menu.load('/aspx/MenuIzq.aspx?id=' + id + "&bolsa=" + bolsa + "&site=" + site, function () {
+            cargaMenu();
+        });
+    } else {
+        cargaMenu();
+    };
+}

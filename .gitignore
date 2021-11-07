@@ -12,17 +12,6 @@ P3/*.zip
 # Cousas especificas
 P2/hello
 P1/ChatGrupal_Java
-/P2/MonteCarlo_1/build/
-/P3/CalculatorWSApplication/nbproject/private/
-/P3/CalculadoraAplicacion/nbproject/private/
-/P3/CalculadoraAplicacion/build/
-/P3/CalculadoraAplicacion/dist/
-/P3/AnalizadorTextos/nbproject/private/
-/P3/AnalizadorTextos/build/
-/P3/MyCalce/nbproject/private/
-/P3/MyCalce/build/
-/P3/CalculadoraApp/nbproject/private/
-/P3/CalculadoraApp/build/
-/P3/Servicio/nbproject/private/
-/P3/Servicio/dist/
-/P3/Servicio/build/
+/P4/PublicaSubscribe_Bolsa/nbproject/private/
+/P4/PublicaSubscribe_Bolsa/build/
+/P4/PublicaSubscribe_Bolsa/dist/

@@ -1,0 +1,16 @@
+﻿var sel;
+$(function () {
+    var theForm = document.forms['aspnetForm'];
+    sel = [ theForm.SelMercado, theForm.SelIndice, theForm.SelSector ];
+});
+var rstSel = function (n) {
+    if (sel[n].selectedIndex > 0) {
+        for (var i=0; i<3; ++i)
+            if (n!=i) sel[i].selectedIndex = 0;
+    };
+};
+var chkSel = function () {
+    for (var i=0; i<3; ++i)
+        if (sel[i].selectedIndex > 0) return true;
+    return false;
+}
