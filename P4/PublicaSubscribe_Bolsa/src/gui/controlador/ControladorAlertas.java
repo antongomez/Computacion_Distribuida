@@ -48,7 +48,7 @@ public class ControladorAlertas implements Initializable {
     @FXML
     private ComboBox<String> comboTipoAlerta;
     @FXML
-    private ListView<Alerta> listaAlertas;
+    private ListView<String> listaAlertas;
     @FXML
     private TextField txtValor;
 
@@ -172,8 +172,8 @@ public class ControladorAlertas implements Initializable {
         }
     }
 
-    public void engadirAlerta(Alerta alerta) {
-        listaAlertas.getItems().add(alerta);
+    public void engadirAlerta(String alerta) {
+        listaAlertas.getItems().add(0, alerta);
     }
 
     public void setFactory(ConnectionFactory factory) {

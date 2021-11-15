@@ -46,11 +46,7 @@ public class RecibidorAlertas extends Thread {
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
-                                if (m.getAlerta() != null) {
-                                    controlador.engadirAlerta(m.getAlerta());
-                                } else {
-                                    System.out.println("A alerta e nula");
-                                }
+                                controlador.engadirAlerta(m.getAlerta() + ", valor actual: " + m.getInfo());
                             }
                         });
                     } catch (IOException | ClassNotFoundException ex) {

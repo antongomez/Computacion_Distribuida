@@ -22,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -35,8 +36,6 @@ import mensaxe.TipoMensaxe;
  */
 public class ControladorLogin implements Initializable {
 
-    @FXML
-    private Label labelPrincipal;
     @FXML
     private TextField txtNomeUser;
     @FXML
