@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="862.0" stylesheets="@../css/estiloBase.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controlador.ControladorAlertas">
+   <top>
+      <HBox prefHeight="60.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="60.0" prefWidth="60.0" />
+            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="60.0" text="Alertas" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Selecciona unha empresa" />
+                  <ComboBox fx:id="comboEmpresa" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Selecciona un tipo de alerta" />
+                  <ComboBox fx:id="comboTipoAlerta" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Introduce unha cantidade" />
+                  <TextField fx:id="txtValor" maxWidth="150.0" onKeyPressed="#enviarAlerta" onKeyTyped="#numeroEscrito" />
+               </children>
+            </VBox>
+            <Button fx:id="btnCrearAlerta" mnemonicParsing="false" onAction="#accionBtnAlerta" text="Crear" />
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <HBox prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="listaAlertas" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </left>
+</BorderPane>

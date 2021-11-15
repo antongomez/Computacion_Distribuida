@@ -14,11 +14,6 @@
     -fx-background-color: #ffd38c;
 }
 
-.list-cell {
-    -fx-animated: true;
-    -fx-padding: 4;
-}
-
 .list-view {
     -fx-background-insets: 0;
     -fx-background-color: #e3ffd9;
@@ -29,7 +24,9 @@
     -fx-background-radius: 0;
 }
 
-.list-cell{
+.list-cell {
+    -fx-animated: true;
+    -fx-padding: 4;
     -fx-background: #e3ffd9;
 }
 

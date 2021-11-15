@@ -1,0 +1,13 @@
+ - Usamos Java RMI para cando se conecte un cliente ao servidor, pasalle unha referencia remota
+dun obxecto.
+ - Desta maneira, cando un cliente lle queira enviar unha mensaxe a outro, invoca o metodo
+de comunicacion do obxecto remoto.
+ - password e nome de usuario ao facer login.
+ - O servidor pasalle a referencia remota dun cliente a outro para que poida comunicarse 
+con el. Ao facer login o servidor envialle ao cliente unha lista de "amigos", referencias 
+remotas. Asi xa sei quen esta en liña.
+ - Nada de mensaxes polo servidor
+ - As amizades son bidireccionais sempre. Hai que solicitar amizade e aceptar.
+
+ - Error de bulto: poñer un metodo getPassword na referencia remota para que o servidor 
+o execute e poida comprobar o login.
