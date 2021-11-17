@@ -113,10 +113,6 @@ public class Alerta implements Serializable {
 
     @Override
     public String toString() {
-        return tipo + ": " + empresa + ", valor umbral: " + valor;
-    }
-    
-    public String imprimir() {
         return "Alerta{" + "tipo=" + tipo + ", empresa=" + empresa + ", valor=" + valor + ", nomeCola=" + nomeCola + '}';
     }
 

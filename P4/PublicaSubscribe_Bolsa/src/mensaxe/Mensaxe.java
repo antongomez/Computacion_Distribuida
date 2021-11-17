@@ -63,11 +63,11 @@ public class Mensaxe implements Serializable {
         if (tipo.compareTo(TipoMensaxe.SAUDO) == 0) {
             return "Mensaxe{" + "tipo=" + tipo.name() + ", info=" + info + '}';
         } else if (tipo.compareTo(TipoMensaxe.NOTIFICAR_ALERTA) == 0) {
-            return "Mensaxe{" + "tipo=" + tipo.name() + ", alerta=" + alerta.imprimir() + '}';
+            return "Mensaxe{" + "tipo=" + tipo.name() + ", alerta=" + alerta + '}';
         } else if (tipo.compareTo(TipoMensaxe.DESPEDIDA) == 0) {
             return "Mensaxe{" + "tipo=" + tipo.name() + ", info=" + info + '}';
         } else {
-            return "Mensaxe{" + "tipo=" + tipo.name() + ", alerta=" + alerta.imprimir() + '}' + ", info=" + info + '}';
+            return "Mensaxe{" + "tipo=" + tipo.name() + ", alerta=" + alerta + '}' + ", info=" + info + '}';
         }
     }
 

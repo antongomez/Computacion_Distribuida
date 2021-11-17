@@ -1,5 +1,2 @@
 Unha alerta e vender telefonica por encima de 30. Outra alerta pode ser vender telefonica 
 por riba de 31. Isto non ten sentido.
-
-Un cliente suscribese cunha alerta de compra, venta e o valor. O servidor consulta os datos
-e revisa a estrutura dinamica e comproba para cada entrada se se cumpre a alerta.
