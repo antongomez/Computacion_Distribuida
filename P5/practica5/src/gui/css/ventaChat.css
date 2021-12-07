@@ -1,0 +1,286 @@
+*{
+    -cor-fondo: #ece5dd;        /* cor do fondo dos chats de whatsapp */
+
+}
+
+.encabezado{
+    -fx-background-color: #88ed61;
+}
+
+.entornoTexto {
+    -fx-background-color: derive(white, -5%);
+}
+
+#btnEnviar {
+    -fx-padding: 0;
+    -fx-background-radius: 50;
+}
+
+#btnEnviar:focused {
+    -fx-background-color: #8ae069;
+    -fx-background-insets: 0;
+}
+
+#btnEnviar:hover {
+    -fx-background-color: #82cf65;
+}
+
+#btnEnviar:pressed, #btnEnviar:default:hover:pressed {
+    -fx-background-color: #95f571;
+}
+
+
+.mensaxesList {
+    -fx-background-color: -cor-fondo;
+    -fx-background-insets: 0;
+    -fx-padding: 1;
+}
+
+.mensaxesList:hover {
+    -fx-background-color: -cor-fondo;
+    -fx-background-insets: 0;
+}
+
+.mensaxesList:focused {
+    -fx-background-color: -cor-fondo;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.mensaxesList > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background: -cor-fondo;
+    -fx-text-fill: -cor-texto;
+    -fx-padding: 4 8 8 4;
+}
+
+.mensaxesList > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: transparent;
+}
+
+.mensaxesList > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+.mensaxesList > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.mensaxesList > .virtual-flow > .clipped-container > .sheet > .list-cell:odd {
+    -fx-background: -cor-fondo;
+}
+
+
+/*
+
+    Clases para as mensaxes
+
+*/
+
+.mnx{
+    -fx-text-fill: black;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 16px;
+    -fx-label-padding: 5;
+    -fx-background-radius: 10;
+}
+
+.mnxEnviado{
+    -fx-background-color: #dcf8c6;  /* Cor das mensaxes de whatsapp */
+}
+
+.mnxRecibido{
+    -fx-background-color: white;
+}
+
+/*
+
+    Clases para as etiquetas da lista de en linha
+
+*/
+
+.lbNomeUser{
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 12pt;
+}
+
+.lbUltimaMensaxe{
+    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 10pt;
+}
+
+/*
+
+    Lista para os amigos en linha
+
+*/
+
+#listaEnLinha {
+    -fx-background: transparent;
+    -fx-background-color: white;
+    -fx-padding: 0;
+}
+
+#listaEnLinha:hover {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#listaEnLinha:focused {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#listaEnLinha > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background: white;
+    -fx-padding: 0 1 0 0;
+}
+
+#listaEnLinha > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: derive(white, -5%);
+    -fx-padding: 0 1 0 2;
+}
+
+#listaEnLinha > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+#listaEnLinha > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: derive(white, -10%);
+    -fx-padding: 0 1 0 1;
+}
+
+#listaEnLinha > .virtual-flow > .clipped-container > .sheet > .list-cell:odd {
+    -fx-background: white;
+}
+
+.lbMensaxesSenLer {
+    -fx-background-color: #25D366;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    /* top right bottom left */
+    -fx-padding: 1 5 1 5;
+}
+
+/*
+
+    Lista para os usuarios (busca)
+
+*/
+
+#listaBuscaUsuarios {
+    -fx-background: transparent;
+    -fx-background-color: white;
+    /*-fx-text-fill: -cor-texto;
+    -fx-padding: 4 8 8 4;*/
+}
+
+#listaBuscaUsuarios:hover {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#listaBuscaUsuarios:focused {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#listaBuscaUsuarios > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background: white;
+}
+
+#listaBuscaUsuarios > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: derive(white, -5%);
+}
+
+#listaBuscaUsuarios > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+#listaBuscaUsuarios > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: derive(white, -10%);
+}
+
+#listaBuscaUsuarios > .virtual-flow > .clipped-container > .sheet > .list-cell:odd {
+    -fx-background: white;
+}
+
+/*
+
+    Lista para as Solicitudes
+
+*/
+
+#listaSolicitudes {
+    -fx-background: transparent;
+    -fx-background-color: white;
+    /*-fx-text-fill: -cor-texto;
+    -fx-padding: 4 8 8 4;*/
+}
+
+#listaSolicitudes:hover {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#listaSolicitudes:focused {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#listaSolicitudes > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background: white;
+}
+
+#listaSolicitudes > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: derive(white, -5%);
+}
+
+#listaSolicitudes > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+#listaSolicitudes > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: derive(white, -10%);
+}
+
+#listaSolicitudes > .virtual-flow > .clipped-container > .sheet > .list-cell:odd {
+    -fx-background: white;
+}
+
+/* Para os botons das solicitudes */
+
+.btnAceptar {
+    -fx-padding: 4 10 4 10;
+}
+
+.btnRexeitar {
+    -fx-padding: 4 10 4 10;
+    -fx-background-color: #f26868; /* vermello claro */
+}
+
+.btnRexeitar:hover {
+    -fx-background-color: #f22c2c; /* vermello mais escuro */
+}
+
+.btnRexeitar:pressed, .button:default:hover:pressed {
+    -fx-background-color: #db2727;
+}
+
+.btnRexeitar:focused {
+    -fx-background-color: #730000, #f26868; /* para os bordes vermello tirando a negro */
+    -fx-background-insets: 0, 1.5;
+}
+
+.cabeceira {
+    -fx-padding: 3;
+    -fx-background-insets: 0, 0 0 1.5 0;
+    -fx-background-color: #88ed61, derive(white, -5%);
+}
+
+.tituloCabeceira {
+    -fx-font-size: 13pt;
+    -fx-font-family: "Segoe UI";
+}
+
+.etqSecundaria {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: #b0b0b0;
+    -fx-font-style: italic;
+}

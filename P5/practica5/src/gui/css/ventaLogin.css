@@ -1,0 +1,23 @@
+.encabezado{
+    -fx-background-color: #8ac474;
+}
+
+#btnRexistrarse:hover{
+    -fx-underline: true;
+}
+
+#btnRexistrarse:focused{
+    -fx-underline: true;
+    -fx-border-insets: 0;
+}
+
+#btnRexistrarse{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: derive(-cor-bordes, 50%);
+    -fx-padding: 0;
+}
+
+#labErro{
+    -fx-text-fill: red;
+}

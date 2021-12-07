@@ -1,2 +1,5 @@
 Unha alerta e vender telefonica por encima de 30. Outra alerta pode ser vender telefonica 
-por riba de 31. Isto non ten sentido.
+por riba de 31. Isto non ten sentido. Alguen ten isto apuntado?
+
+Falar con alguen e razonar o das factory en localhost. Distintas factory e canais para 
+colas de cliente e servidor?

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controlador.ControladorChat">
+   <center>
+      <VBox alignment="BOTTOM_CENTER">
+         <children>
+            <StackPane VBox.vgrow="ALWAYS" fx:id="xestorListas">
+               <children>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER" styleClass="entornoTexto" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbInfo" prefHeight="550.0" text="Non hai amigos conectados" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="80.0" spacing="10.0" styleClass="entornoTexto" VBox.vgrow="NEVER">
+               <children>
+                  <TextArea fx:id="txtareaMensaxe" minHeight="50.0" prefWidth="500.0" promptText="Mensaxe" HBox.hgrow="ALWAYS">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextArea>
+                  <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="NEVER">
+                     <children>
+                        <Button fx:id="btnEnviar" mnemonicParsing="false" onAction="#actBtnEnviar">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../recursos/Enviar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <stylesheets>
+      <URL value="@../css/estiloBaseVerde.css" />
+      <URL value="@../css/ventaChat.css" />
+   </stylesheets>
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxHeight="80.0" minHeight="80.0" prefHeight="80.0" styleClass="encabezado" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" HBox.hgrow="NEVER" />
+                  <HBox alignment="CENTER" minWidth="100.0" prefHeight="80.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="labelPrincipal" alignment="CENTER" prefHeight="80.0" prefWidth="282.0" styleClass="label-header" text="Falando" HBox.hgrow="SOMETIMES" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="labelNomeUser" alignment="CENTER" contentDisplay="TOP" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="100.0" text="antongomez" HBox.hgrow="NEVER">
+                     <graphic>
+                        <ImageView fx:id="fotoPerfil" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Label>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <TabPane>
+         <tabs>
+            <Tab text="Amigos">
+               <content>
+                  <ListView fx:id="listaEnLinha" onMouseClicked="#seleccionarChat" prefWidth="310.0" />
+               </content>
+            </Tab>
+            <Tab text="Usuarios">
+              <content>
+                  <VBox alignment="CENTER" spacing="10.0" styleClass="entornoTexto">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                           <children>
+                              <Label minWidth="104.0" text="Buscar usuarios:" />
+                              <TextField fx:id="txtBuscador" minWidth="150.0" onKeyTyped="#buscar" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <ListView fx:id="listaBuscaUsuarios" onMouseClicked="#seleccionarUsuario" prefWidth="310.0" VBox.vgrow="ALWAYS" />
+                        <Button fx:id="btnSolicitarAmizade" mnemonicParsing="false" onAction="#solicitarAmizade" text="Solicitar amizade" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" top="5.0" />
+                     </padding>
+                  </VBox>
+              </content>
+            </Tab>
+            <Tab text="Solicitudes">
+              <content>
+                  <ListView fx:id="listaSolicitudes" onMouseClicked="#seleccionarChat" prefWidth="310.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </left>
+</BorderPane>

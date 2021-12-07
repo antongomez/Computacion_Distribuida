@@ -59,10 +59,8 @@ public class ServidorMonteCarlo {
 
             System.out.println("O rexistro RMI non puido ser localizado no porto "
                     + RMIPortNum);
-            Registry registry
-                    = LocateRegistry.createRegistry(RMIPortNum);
-            System.out.println(
-                    "Rexistro RMI creado no porto " + RMIPortNum);
+            Registry registry = LocateRegistry.createRegistry(RMIPortNum);
+            System.out.println("Rexistro RMI creado no porto " + RMIPortNum);
         }
     }
 

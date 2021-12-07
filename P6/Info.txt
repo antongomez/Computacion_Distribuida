@@ -1,0 +1,33 @@
+ - Antes de cada call for proposal (creo) facer unha chamada ao servizo de paxinas amarelas 
+	para saber cantos compradores hai na sala.
+ - Isto pasa porque imos permitir que os compradores poidan sair da sala en calquera momento.
+ - Polo tanto, a primeira mensaaxe de 1..* non ten sentido no noso caso.
+ - Hai un time-out. O que non responda nese tempo considerase que non quere comprar o libro.
+	No campo do propose non poñer nada. A el gustalle mais asi, pero dalle igual como
+	se implemenete.
+ - Imos facer que os incrementos sexan fixos. O propose consiste en "levantar a man", por 
+	iso non ten contido. 
+ - Cando finalizar a subasta: cando so un levante a man, ou cando ninguen levante a man.
+	Pero esta segunda opcion implica ter un mecanismo para levara a conta de cantos
+	levantaron a man e de quen "gañou" a ronda (ainda que varios levanten a man).
+	Por exemplo: asignar aleatoriamente quen a gaña ou asignarlle a victoria ao que 
+	levanmte a man primeiro.
+ - O comprador executa un propose cando o precio que se anuncia e menor que o precio
+	maximo que esta disposto a pagar (estabecido polo usuario).
+ - Reply-with para non mesturar mensaxes das subastas. Novo comportamento cada vez que quero 
+	comprar un libro.
+ - Asumimos a situacion de que un axente cando gaña a subasta nunca vai marcharse da sala.
+ - O vendedor pon dous libros iguais a subasta e un cliente esta interesado nel, participara
+	nas duas. Isto non e un problema. O comprador e reactivo. Se esta interesado nun 
+	libro, metese na subasta e punto.
+ - Podemos aproveitarnos da limitacion do tempo entre prezo e prezo para implementar o time-
+	out e decidir quen e o gañador.
+ - Imos asumir que o vendedor funciona de forma etica, por dicilo de algunha forma. Isto 
+	implica que o vendedor sempre vai a avanzar cara diante.
+ - Interfaz grafica no servidor para subastar novos libros. Mostrar nunha taboa cunha fila
+	por cada libro subastado. No cliente tamen. Indicar cunha taboa o estado das 
+	subastas nas que participa. En cada fila indicar se esta sendo o gañador.
+ - O vendedor ten un cataogo. O comprador pode estar interesado en libros que ainda non 
+	estan en subasta. Ao servidor indicaselle o incremento e o precio de saida.
+ - SNIFFER. Non vai mirar o codigo fonte nesta practica. Vai mirar o resultado e as mensaxes
+	que se intercambian entre os distintos axentes.
