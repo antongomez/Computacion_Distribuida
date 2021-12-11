@@ -14,7 +14,7 @@ public interface ClienteInterfaz extends Remote {
 
     public void notificarConexion(ClienteInterfaz cliente) throws RemoteException;
 
-    public void notificarDesconexion(ClienteInterfaz cliente) throws RemoteException;
+    public void notificarDesconexion(String clienteDesconectado) throws RemoteException;
     
     public void recibirMensaxe(String mns, String idUsuario) throws RemoteException;
     

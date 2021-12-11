@@ -284,3 +284,11 @@
     -fx-text-fill: #b0b0b0;
     -fx-font-style: italic;
 }
+
+.tabSolicitudesNegrita .tab-label{
+    -fx-font-family: "Segoe UI Semibold";
+}
+
+.tabSolicitudesNormal .tab-label{
+    -fx-font-family: "Segoe UI";
+}

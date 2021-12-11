@@ -26,7 +26,7 @@ public class ClienteImpl extends UnicastRemoteObject implements ClienteInterfaz 
     }
 
     @Override
-    public void recibirMensaxe(String mns, String idUsuario) {
+    public void recibirMensaxe(String mns, String idUsuario) throws RemoteException{
         controlador.recibirMensaxe(mns, idUsuario);
     }
 
@@ -36,8 +36,8 @@ public class ClienteImpl extends UnicastRemoteObject implements ClienteInterfaz 
     }
 
     @Override
-    public void notificarDesconexion(ClienteInterfaz cliente) {
-        controlador.eliminarEnLinha(cliente);
+    public void notificarDesconexion(String clienteDesconectado) {
+        controlador.eliminarEnLinha(clienteDesconectado);
     }
 
     @Override

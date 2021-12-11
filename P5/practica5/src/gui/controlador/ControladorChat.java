@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -79,6 +81,8 @@ public class ControladorChat implements Initializable {
     private Label lbInfo;
     @FXML
     private ImageView fotoPerfil;
+    @FXML
+    private Tab tabSoli;
 
     /**
      * Initializes the controller class.
@@ -179,7 +183,7 @@ public class ControladorChat implements Initializable {
             }
             List<String> listaUsuarios = new ArrayList<>();
             try {
-                listaUsuarios = servidor.buscarUsuarioSolicitarAmizade(txtBuscador.getText(), nomeUser);
+                listaUsuarios = servidor.buscarUsuarioSolicitarAmizade(txtBuscador.getText(), nomeUser, contrasinal);
             } catch (RemoteException ex) {
                 Logger.getLogger(ControladorChat.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -199,7 +203,7 @@ public class ControladorChat implements Initializable {
 
         String solicitado = listaBuscaUsuarios.getSelectionModel().getSelectedItem();
         try {
-            servidor.solicitarAmizade(nomeUser, solicitado);
+            servidor.solicitarAmizade(nomeUser, solicitado, contrasinal);
         } catch (RemoteException ex) {
             Logger.getLogger(ControladorChat.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -212,6 +216,11 @@ public class ControladorChat implements Initializable {
         ventaNotif.show();
         btnSolicitarAmizade.setDisable(true);
 
+    }
+
+    @FXML
+    private void actSolicitudes(Event event) {
+        tabSoli.getStyleClass().add("tabSolicitudesNormal");
     }
 
     public void recibirSolicitude(String usuario) {
@@ -265,6 +274,9 @@ public class ControladorChat implements Initializable {
                 //busqueda para que non apareza o usuario que realizou a solicitude
                 realizarBusqueda();
 
+                // Marcamos a pestana en negrita
+                tabSoli.getStyleClass().add("tabSolicitudesNegrita");
+
             }
         });
 
@@ -272,7 +284,7 @@ public class ControladorChat implements Initializable {
 
     private void actBtnAceptar(String usuario, HBox caixa) {
         try {
-            servidor.aceptarSolicitude(usuario, nomeUser);
+            servidor.aceptarSolicitude(usuario, nomeUser, contrasinal);
             listaSolicitudes.getItems().remove(caixa);
         } catch (RemoteException ex) {
             Logger.getLogger(ControladorChat.class.getName()).log(Level.SEVERE, null, ex);
@@ -281,7 +293,7 @@ public class ControladorChat implements Initializable {
 
     private void actBtnRexeitar(String usuario, HBox caixa) {
         try {
-            servidor.rexeitarSolicitude(usuario, nomeUser);
+            servidor.rexeitarSolicitude(usuario, nomeUser, contrasinal);
             listaSolicitudes.getItems().remove(caixa);
         } catch (RemoteException ex) {
             Logger.getLogger(ControladorChat.class.getName()).log(Level.SEVERE, null, ex);
@@ -500,53 +512,46 @@ public class ControladorChat implements Initializable {
 
     }
 
-    public void eliminarEnLinha(ClienteInterfaz cliente) {
+    public void eliminarEnLinha(String idUsuarioDesconectado) {
 
-        try {
-            String idUsuarioDesconectado = cliente.getIdUsuario();
-            //Buscamos o cliente que se desconectou
+        VBox caixa = obterCaixaUsuarioListaEnLinha(idUsuarioDesconectado);
+        String id = obterCampoEnLinhaNomeUser(caixa).getText();
 
-            VBox caixa = obterCaixaUsuarioListaEnLinha(idUsuarioDesconectado);
-            String id = obterCampoEnLinhaNomeUser(caixa).getText();
-
-            // Eliminamos a referencia remota do cliente
-            synchronized (usuariosEnLinha) {
-                usuariosEnLinha.remove(id);
-            }
-
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    int tam;
-                    synchronized (listaEnLinha) {
-                        // Eliminamos a caixa do usuario nos en linha
-                        tam = listaEnLinha.getItems().size();
-                        listaEnLinha.getItems().remove(caixa);
-                    }
-
-                    synchronized (listasChats) {
-                        // En caso de que se teña aberto o chat co cliente que se 
-                        // acaba de marchar desactivamos o boton
-                        if (xestorListas.getChildren().indexOf(listasChats.get(id)) == (tam - 1)) {
-                            lbInfo.setText("Selecciona un amigo para comezar a conversar");
-                            btnEnviar.setDisable(true);
-                        }
-
-                        if (tam == 1) {
-                            lbInfo.setText("Non hai usuarios conectados");
-                            btnEnviar.setDisable(true);
-                        }
-
-                        xestorListas.getChildren().remove(listasChats.get(id));
-                        // Eliminamos a entrada no hashMap de chats
-                        listasChats.remove(id);
-                    }
-                }
-            });
-
-        } catch (RemoteException e) {
-            System.out.println(e.getMessage());
+        // Eliminamos a referencia remota do cliente
+        synchronized (usuariosEnLinha) {
+            usuariosEnLinha.remove(id);
         }
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                int tam;
+                synchronized (listaEnLinha) {
+                    // Eliminamos a caixa do usuario nos en linha
+                    tam = listaEnLinha.getItems().size();
+                    listaEnLinha.getItems().remove(caixa);
+                }
+
+                synchronized (listasChats) {
+                    // En caso de que se teña aberto o chat co cliente que se 
+                    // acaba de marchar desactivamos o boton
+                    if (xestorListas.getChildren().indexOf(listasChats.get(id)) == (tam - 1)) {
+                        lbInfo.setText("Selecciona un amigo para comezar a conversar");
+                        btnEnviar.setDisable(true);
+                    }
+
+                    if (tam == 1) {
+                        lbInfo.setText("Non hai usuarios conectados");
+                        btnEnviar.setDisable(true);
+                    }
+
+                    xestorListas.getChildren().remove(listasChats.get(id));
+                    // Eliminamos a entrada no hashMap de chats
+                    listasChats.remove(id);
+                }
+            }
+        });
+
     }
 
     public void recibirMensaxe(String mns, String emisor) {
@@ -585,6 +590,10 @@ public class ControladorChat implements Initializable {
 
     public int getNumFotoPerfil() {
         return numFotoPerfil;
+    }
+
+    public String getContrasinal() {
+        return this.contrasinal;
     }
 
     /*

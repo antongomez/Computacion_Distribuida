@@ -79,7 +79,7 @@ public class ControladorLogin implements Initializable {
                     @Override
                     public void handle(WindowEvent event) {
                         try {
-                            controlador.getServidor().desconectarse(controlador.getCliente());
+                            controlador.getServidor().desconectarse(controlador.getContrasinal(), controlador.getCliente());
                         } catch (RemoteException ex) {
                             System.out.println("Non se puido localizar algo (ControladorLogin)");
                             Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);

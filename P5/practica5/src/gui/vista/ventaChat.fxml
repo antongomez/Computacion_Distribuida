@@ -122,7 +122,7 @@
                   </VBox>
               </content>
             </Tab>
-            <Tab text="Solicitudes">
+            <Tab fx:id="tabSoli" onSelectionChanged="#actSolicitudes" text="Solicitudes">
               <content>
                   <ListView fx:id="listaSolicitudes" onMouseClicked="#seleccionarChat" prefWidth="310.0" />
               </content>

@@ -56,17 +56,19 @@ public class ServidorImpl extends UnicastRemoteObject implements ServidorInterfa
     }
 
     @Override
-    public void desconectarse(ClienteInterfaz cliente) throws RemoteException {
+    public void desconectarse(String contrasinal, ClienteInterfaz cliente) throws RemoteException {
 
         String id = cliente.getIdUsuario();
-        synchronized (clientes) {
-            ArrayList<ClienteInterfaz> amigosEnLinha = buscarAmigosEnLinha(id);
+        if (comprobarCredenciais(id, contrasinal)) {
+            synchronized (clientes) {
+                ArrayList<ClienteInterfaz> amigosEnLinha = buscarAmigosEnLinha(id);
 
-            if (clientes.contains(cliente)) {
-                clientes.remove(cliente);
+                if (clientes.contains(cliente)) {
+                    clientes.remove(cliente);
 
-                for (ClienteInterfaz c : amigosEnLinha) {
-                    c.notificarDesconexion(cliente);
+                    for (ClienteInterfaz c : amigosEnLinha) {
+                        c.notificarDesconexion(cliente.getIdUsuario());
+                    }
                 }
             }
         }
@@ -100,59 +102,67 @@ public class ServidorImpl extends UnicastRemoteObject implements ServidorInterfa
 
     //Busca os usuarios que cumpran o patrón e que non sexan amigos nin se lles enviara xa unha solicitude
     @Override
-    public List<String> buscarUsuarioSolicitarAmizade(String patron, String solicitante) throws RemoteException {
-        return fBD.buscarUsuariosSolicitarAmizade(patron, solicitante);
+    public List<String> buscarUsuarioSolicitarAmizade(String patron, String solicitante, String contrasinal) throws RemoteException {
+        if (comprobarCredenciais(solicitante, contrasinal)) {
+            return fBD.buscarUsuariosSolicitarAmizade(patron, solicitante);
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     @Override
-    public void solicitarAmizade(String solicitante, String receptor) throws RemoteException {
-        fBD.engadirSolicitude(solicitante, receptor);
-        synchronized (clientes) {
-            for (ClienteInterfaz c : clientes) {
-                if (c.getIdUsuario().equals(receptor)) {
-                    c.recibirSolicitude(solicitante);
+    public void solicitarAmizade(String solicitante, String receptor, String contrasinal) throws RemoteException {
+        if (comprobarCredenciais(solicitante, contrasinal)) {
+            fBD.engadirSolicitude(solicitante, receptor);
+            synchronized (clientes) {
+                for (ClienteInterfaz c : clientes) {
+                    if (c.getIdUsuario().equals(receptor)) {
+                        c.recibirSolicitude(solicitante);
+                    }
                 }
             }
         }
     }
 
     @Override
-    public void rexeitarSolicitude(String solicitante, String receptor
-    ) {
-        if (!fBD.eliminarSolicitude(solicitante, receptor)) {
-            System.out.println("Non se puido eliminar a solicitude");
+    public void rexeitarSolicitude(String solicitante, String receptor, String contrasinal) throws RemoteException {
+        if (comprobarCredenciais(receptor, contrasinal)) {
+            if (!fBD.eliminarSolicitude(solicitante, receptor)) {
+                System.out.println("Non se puido eliminar a solicitude");
+            }
         }
     }
 
     @Override
-    public void aceptarSolicitude(String solicitante, String receptor
-    ) {
-        if (!fBD.aceptarSolicitude(solicitante, receptor)) {
-            System.out.println("Non se puido aceptar a solicitude");
-        } else {
-            synchronized (clientes) {
-                // Se o solicitante esta en linha enviamoslle a interfaz remota do 
-                // receptor da solicitude e ao receptor a do solicitante
-                int indiceSolicitante = usuarioEnLinha(solicitante);
-                int indiceReceptor = usuarioEnLinha(receptor);
-                if ((indiceSolicitante >= 0) && (indiceReceptor >= 0)) {
-                    ArrayList<ClienteInterfaz> cliente = new ArrayList<>();
+    public void aceptarSolicitude(String solicitante, String receptor, String contrasinal) throws RemoteException{
+        if (comprobarCredenciais(receptor, contrasinal)) {
+            if (!fBD.aceptarSolicitude(solicitante, receptor)) {
+                System.out.println("Non se puido aceptar a solicitude");
+            } else {
+                synchronized (clientes) {
+                    // Se o solicitante esta en linha enviamoslle a interfaz remota do 
+                    // receptor da solicitude e ao receptor a do solicitante
+                    int indiceSolicitante = usuarioEnLinha(solicitante);
+                    int indiceReceptor = usuarioEnLinha(receptor);
+                    if ((indiceSolicitante >= 0) && (indiceReceptor >= 0)) {
+                        ArrayList<ClienteInterfaz> cliente = new ArrayList<>();
 
-                    // Enviamoslle a interfaz ao solicitante
-                    cliente.add(clientes.get(indiceReceptor));
-                    try {
-                        clientes.get(indiceSolicitante).recibirAmigosEnLinha(cliente);
-                    } catch (RemoteException ex) {
-                        Logger.getLogger(ServidorImpl.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                        // Enviamoslle a interfaz ao solicitante
+                        cliente.add(clientes.get(indiceReceptor));
+                        try {
+                            clientes.get(indiceSolicitante).recibirAmigosEnLinha(cliente);
+                        } catch (RemoteException ex) {
+                            Logger.getLogger(ServidorImpl.class.getName()).log(Level.SEVERE, null, ex);
+                        }
 
-                    // Enviamoslle a interfaz ao receptor
-                    cliente.clear();
-                    cliente.add(clientes.get(indiceSolicitante));
-                    try {
-                        clientes.get(indiceReceptor).recibirAmigosEnLinha(cliente);
-                    } catch (RemoteException ex) {
-                        Logger.getLogger(ServidorImpl.class.getName()).log(Level.SEVERE, null, ex);
+                        // Enviamoslle a interfaz ao receptor
+                        cliente.clear();
+                        cliente.add(clientes.get(indiceSolicitante));
+                        try {
+                            clientes.get(indiceReceptor).recibirAmigosEnLinha(cliente);
+                        } catch (RemoteException ex) {
+                            Logger.getLogger(ServidorImpl.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
             }
