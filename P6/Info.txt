@@ -1,7 +1,7 @@
  - Antes de cada call for proposal (creo) facer unha chamada ao servizo de paxinas amarelas 
 	para saber cantos compradores hai na sala.
  - Isto pasa porque imos permitir que os compradores poidan sair da sala en calquera momento.
- - Polo tanto, a primeira mensaaxe de 1..* non ten sentido no noso caso.
+ - Polo tanto, a primeira mensaxe de 1..* non ten sentido no noso caso.
  - Hai un time-out. O que non responda nese tempo considerase que non quere comprar o libro.
 	No campo do propose non poñer nada. A el gustalle mais asi, pero dalle igual como
 	se implemenete.

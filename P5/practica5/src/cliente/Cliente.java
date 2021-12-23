@@ -7,7 +7,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-
 /**
  *
  * @author Anton Gomez e Crsitina Lopez
@@ -15,7 +14,7 @@ import javafx.stage.StageStyle;
 public class Cliente extends Application {
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
     @Override
@@ -32,7 +31,7 @@ public class Cliente extends Application {
     }
 
     @Override
-    public void stop() throws Exception{
+    public void stop() throws Exception {
         System.exit(0);
     }
 }
