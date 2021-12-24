@@ -1,0 +1,61 @@
+; Sun Jul 05 13:11:32 CEST 2015
+; 
+;+ (version "3.4")
+;+ (build "Build 533")
+
+([addresses] of  %3AJADE-SLOT
+
+	(%3AJADE-UNNAMED-SLOT FALSE))
+
+([AgentAction] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE TRUE))
+
+([AID] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE TRUE))
+
+([Concept] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE TRUE))
+
+([name] of  %3AJADE-SLOT
+
+	(%3AJADE-UNNAMED-SLOT FALSE))
+
+([Oferta] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))
+
+([Ofertar] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))
+
+([Pedir] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))
+
+([Predicate] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE TRUE))
+
+([project+annotation] of  %3APROJECT-ANNOTATION
+
+	(%3AONTOLOGYNAME "EjemploOntologia")
+	(%3APACKAGE "org.comdis.onto"))
+
+([resolvers] of  %3AJADE-SLOT
+
+	(%3AJADE-UNNAMED-SLOT FALSE))
+
+([SimpleJADEAbstractOntology_00014] of  %3ASTANDARD-FACET
+
+	(%3AASSOCIATED-SLOT [%3AJADE-NAME]))
+
+([SimpleJADEAbstractOntology_00016] of  %3ASTANDARD-FACET
+
+	(%3AASSOCIATED-SLOT [%3AJADE-UNNAMED-SLOT]))
+
+([Vinilo] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))

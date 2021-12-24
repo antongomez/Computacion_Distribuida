@@ -1,0 +1,25 @@
+; Fri Dec 24 18:59:54 CET 2021
+; 
+;+ (version "3.4.8")
+;+ (build "Build 629")
+
+([enviarRecibo] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))
+
+([Informar] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))
+
+([Interesa] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))
+
+([project+annotation] of  %3APROJECT-ANNOTATION
+
+	(%3AONTOLOGYNAME "subasta-inglesa")
+	(%3APACKAGE "ontoloxiaSubasta"))
+
+([Subasta] of  %3AJADE-CLASS
+
+	(%3AJADE-IGNORE FALSE))
