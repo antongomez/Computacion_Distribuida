@@ -23,7 +23,6 @@ public class CambiarRonda extends WakerBehaviour {
             // Se hai un ganhador pasamos ao paso 3
             if (comportamento.getAxentesRonda().size() == 1) {
                 comportamento.setStep(3);
-                System.out.println(myAgent.getLocalName() + ": nesta ronda so puxou un, Ganha");
                 comportamento.getSubasta().setEstado(Subasta.ESTADO_2);
                 comportamento.actualizarSubasta();
             } else {
@@ -34,15 +33,13 @@ public class CambiarRonda extends WakerBehaviour {
 
         } else {
             if (comportamento.getRonda() > 0) {
-                System.out.println(myAgent.getLocalName() + ": nesta ronda ninguen puxou, ganha o primeiro da anterior");
                 comportamento.getSubasta().setEstado(Subasta.ESTADO_2);
                 comportamento.getSubasta().setPrezo(comportamento.getSubasta().getPrezo()- comportamento.getSubasta().getIncremento());
                 comportamento.actualizarSubasta();
 
                 comportamento.setStep(3);
             } else {
-                System.out.println(myAgent.getLocalName() + ": pasaron os 10 segundos e NON hai compradores interesados");
-                System.out.println(myAgent.getLocalName() + ": volvemos a facer o call for proposal\n");
+                System.out.println(myAgent.getLocalName() + ": pasaron os 10 segundos e non hai compradores interesados");
                 comportamento.setStep(0);
             }
 

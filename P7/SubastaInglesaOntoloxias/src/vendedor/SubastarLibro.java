@@ -79,7 +79,7 @@ public class SubastarLibro extends Behaviour {
                     }
 
                 } else {
-                    block(5000);
+                    block(10000);
                 }
                 break;
             case 1:
@@ -130,7 +130,6 @@ public class SubastarLibro extends Behaviour {
                 step = 4;
 
                 // Por ultimo, enviamos o request para iniciar outro protocolo
-                System.out.println("Enviamos o request");
                 ACLMessage request = new ACLMessage(ACLMessage.REQUEST);
                 request.setLanguage(((Vendedor) myAgent).getCodec().getName());
                 request.setOntology(((Vendedor) myAgent).getOntoloxia().getName());

@@ -67,8 +67,6 @@ public class BuscarSubasta extends CyclicBehaviour {
 
                                 interfaz.actualizarSubasta(subasta);
 
-                            } else if (prezoMax == null) {
-                                System.out.println(myAgent.getLocalName() + ": o libro non me interesa " + subasta.getIdSubasta());
                             }
                         }
                     } catch (Codec.CodecException | OntologyException ex) {
@@ -98,9 +96,7 @@ public class BuscarSubasta extends CyclicBehaviour {
                         Informar informar = (Informar) ac.getAction();
                         Subasta subasta = (DefaultSubasta) informar.getSubasta();
                         int indice = participoSubasta(subasta.getIdSubasta());
-                        System.out.println(myAgent.getLocalName() + ": indice: " + indice);
                         if (indice != -1) {
-                            System.out.println(myAgent.getLocalName() + ": inform recibido con: " + subasta.getGanhador() + ", " + subasta.getIdSubasta());
                             actualizarSubasta(subasta, indice);
 
                             interfaz.actualizarSubasta(subasta);
