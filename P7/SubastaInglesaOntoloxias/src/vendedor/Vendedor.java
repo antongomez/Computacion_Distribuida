@@ -1,11 +1,16 @@
 package vendedor;
 
+import comprador.Comprador;
 import jade.content.lang.Codec;
 import jade.content.lang.sl.SLCodec;
 import jade.content.onto.Ontology;
 import jade.core.Agent;
 import jade.core.behaviours.OneShotBehaviour;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 import ontoloxiaSubasta.Subasta;
 import ontoloxiaSubasta.Subasta_inglesaOntology;
 import ontoloxiaSubasta.impl.DefaultSubasta;
@@ -35,6 +40,25 @@ public class Vendedor extends Agent {
 
         gui = new InterfazVendedor(this);
         gui.setTitle(getLocalName());
+        
+        Vendedor vendedor = this;
+        gui.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Se pide una confirmación antes de finalizar el programa
+                int option = JOptionPane.showConfirmDialog(
+                        gui,
+                        "Seguro que queres finalizar a execucion do axente " + gui.getTitle() + "?",
+                        "Confirmacion de finalziacion",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE);
+                if (option == JOptionPane.YES_OPTION) {
+                    gui.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                    vendedor.doDelete();
+                }
+            }
+        });
+        
         gui.setVisible(true);
     }
 
