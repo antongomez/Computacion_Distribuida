@@ -6,11 +6,11 @@ import ontoloxiaSubasta.*;
 /**
 * Protege name: enviarRecibo
 * @author OntologyBeanGenerator v4.1
-* @version 2021/12/24, 17:59:57
+* @version 2021/12/25, 21:18:31
 */
 public class DefaultEnviarRecibo implements EnviarRecibo {
 
-  private static final long serialVersionUID = 5385195621906642128L;
+  private static final long serialVersionUID = -9065970472412463086L;
 
   private String _internalInstanceName = null;
 

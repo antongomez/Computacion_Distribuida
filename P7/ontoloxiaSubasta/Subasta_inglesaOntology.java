@@ -6,11 +6,11 @@ import jade.content.schema.*;
 
 /** file: Subasta_inglesaOntology.java
  * @author OntologyBeanGenerator v4.1
- * @version 2021/12/24, 17:59:57
+ * @version 2021/12/25, 21:18:31
  */
 public class Subasta_inglesaOntology extends jade.content.onto.Ontology  {
 
-  private static final long serialVersionUID = 5385195621906642128L;
+  private static final long serialVersionUID = -9065970472412463086L;
 
   //NAME
   public static final String ONTOLOGY_NAME = "subasta-inglesa";
@@ -70,7 +70,7 @@ public class Subasta_inglesaOntology extends jade.content.onto.Ontology  {
     subastaSchema.add(SUBASTA_RONDA, (TermSchema)getSchema(BasicOntology.INTEGER), ObjectSchema.MANDATORY);
     subastaSchema.add(SUBASTA_TITULO, (TermSchema)getSchema(BasicOntology.STRING), ObjectSchema.MANDATORY);
     subastaSchema.add(SUBASTA_ESTADO, (TermSchema)getSchema(BasicOntology.STRING), ObjectSchema.OPTIONAL);
-    subastaSchema.add(SUBASTA_GANHADOR, (TermSchema)getSchema(BasicOntology.STRING), ObjectSchema.OPTIONAL);
+    subastaSchema.add(SUBASTA_GANHADOR, (ConceptSchema)getSchema(BasicOntology.AID), ObjectSchema.OPTIONAL);
     subastaSchema.add(SUBASTA_IDSUBASTA, (TermSchema)getSchema(BasicOntology.STRING), ObjectSchema.MANDATORY);
     subastaSchema.add(SUBASTA_PREZO, (TermSchema)getSchema(BasicOntology.FLOAT), ObjectSchema.MANDATORY);
     informarSchema.add(INFORMAR_SUBASTA, subastaSchema, ObjectSchema.MANDATORY);

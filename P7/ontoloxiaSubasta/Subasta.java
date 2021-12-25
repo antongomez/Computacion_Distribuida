@@ -5,7 +5,7 @@ package ontoloxiaSubasta;
 /**
 * Protege name: Subasta
 * @author OntologyBeanGenerator v4.1
-* @version 2021/12/24, 17:59:57
+* @version 2021/12/25, 21:18:31
 */
 public interface Subasta extends jade.content.Concept {
 
@@ -36,8 +36,8 @@ public interface Subasta extends jade.content.Concept {
    /**
    * Protege name: ganhador
    */
-   public void setGanhador(String value);
-   public String getGanhador();
+   public void setGanhador(jade.core.AID value);
+   public jade.core.AID getGanhador();
 
    /**
    * Protege name: idSubasta

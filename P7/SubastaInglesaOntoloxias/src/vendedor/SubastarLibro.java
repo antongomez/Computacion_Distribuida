@@ -214,7 +214,7 @@ public class SubastarLibro extends Behaviour {
             } else {
                 comunicarResultado = new ACLMessage(ACLMessage.REJECT_PROPOSAL);
             }
-            subasta.setGanhador(axenteGanhador.getLocalName());
+            subasta.setGanhador(axenteGanhador);
             interfaz.actualizarSubasta(subasta);
 
             comunicarResultado.setLanguage(((Vendedor) myAgent).getCodec().getName());

@@ -5,7 +5,7 @@ package ontoloxiaSubasta;
 /**
 * Protege name: Informar
 * @author OntologyBeanGenerator v4.1
-* @version 2021/12/24, 17:59:57
+* @version 2021/12/25, 21:18:31
 */
 public interface Informar extends jade.content.AgentAction {
 

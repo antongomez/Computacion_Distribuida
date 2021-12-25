@@ -42,7 +42,7 @@ public class InterfazComprador extends javax.swing.JFrame {
                     if (subasta.getGanhador() == null) {
                         taboaSubastas.setValueAt(" - ", i, 4);
                     } else {
-                        taboaSubastas.setValueAt(subasta.getGanhador(), i, 4);
+                        taboaSubastas.setValueAt(subasta.getGanhador().getLocalName(), i, 4);
                     }
                     taboaSubastas.setValueAt(subasta.getEstado(), i, 5);
                     flag = 1;
@@ -57,7 +57,7 @@ public class InterfazComprador extends javax.swing.JFrame {
                         subasta.getRonda(), subasta.getPrezo(), " - ", subasta.getEstado()};
                 } else {
                     fila = new Object[]{subasta.getIdSubasta(), subasta.getTitulo(),
-                        subasta.getRonda(), subasta.getPrezo(), subasta.getGanhador(), subasta.getEstado()};
+                        subasta.getRonda(), subasta.getPrezo(), subasta.getGanhador().getLocalName(), subasta.getEstado()};
                 }
                 ((DefaultTableModel) taboaSubastas.getModel()).addRow(fila);
             }
@@ -71,7 +71,7 @@ public class InterfazComprador extends javax.swing.JFrame {
                     if (subasta.getGanhador() == null) {
                         taboaSubastas.setValueAt(" - ", i, 4);
                     } else {
-                        taboaSubastas.setValueAt(subasta.getGanhador(), i, 4);
+                        taboaSubastas.setValueAt(subasta.getGanhador().getLocalName(), i, 4);
                     }
                     taboaSubastas.setValueAt(subasta.getEstado(), i, 5);
                     break;
@@ -79,7 +79,7 @@ public class InterfazComprador extends javax.swing.JFrame {
             }
             // No caso de que sexa ganhador, eliminamos o libro da lista de libros en
             // busca de subastas e engadimola a lista de libros comprados
-            if (comprador.getLocalName().equals(subasta.getGanhador())) {
+            if (comprador.getAID().equals(subasta.getGanhador())) {
                 int index = -1;
 
                 ((DefaultListModel) listaSubastas.getModel()).add(0, subasta.getTitulo() + ", " + subasta.getPrezo() + " €");

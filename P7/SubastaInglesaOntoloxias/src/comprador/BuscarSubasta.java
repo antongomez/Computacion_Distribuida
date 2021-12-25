@@ -101,7 +101,7 @@ public class BuscarSubasta extends CyclicBehaviour {
 
                             interfaz.actualizarSubasta(subasta);
 
-                            if (subasta.getGanhador().equals(myAgent.getLocalName())) {
+                            if (subasta.getGanhador().equals(myAgent.getAID())) {
                                 comprador.eliminarLibroCatalogo(subasta.getTitulo());
                                 System.out.println(myAgent.getLocalName() + ": son o comprador ganhador de " + subasta.getIdSubasta());
                             }

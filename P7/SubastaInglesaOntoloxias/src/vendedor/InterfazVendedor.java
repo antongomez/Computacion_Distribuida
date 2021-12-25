@@ -36,7 +36,7 @@ public class InterfazVendedor extends javax.swing.JFrame {
                         if (subasta.getGanhador() == null) {
                             taboaSubastas.setValueAt(" - ", i, 4);
                         } else {
-                            taboaSubastas.setValueAt(subasta.getGanhador(), i, 4);
+                            taboaSubastas.setValueAt(subasta.getGanhador().getLocalName(), i, 4);
                         }
                         taboaSubastas.setValueAt(subasta.getEstado(), i, 5);
                         break;
@@ -54,14 +54,14 @@ public class InterfazVendedor extends javax.swing.JFrame {
                         if (subasta.getGanhador() == null) {
                             taboaSubastas.setValueAt(" - ", i, 4);
                         } else {
-                            taboaSubastas.setValueAt(subasta.getGanhador(), i, 4);
+                            taboaSubastas.setValueAt(subasta.getGanhador().getLocalName(), i, 4);
                         }
                         taboaSubastas.setValueAt(subasta.getEstado(), i, 5);
                         break;
                     }
                 }
                 // Engadimos a lista de libros vendidos o libro
-                ((DefaultListModel) listaSubastas.getModel()).add(0, subasta.getTitulo() + " | " + subasta.getPrezo() + " € | " + subasta.getGanhador());
+                ((DefaultListModel) listaSubastas.getModel()).add(0, subasta.getTitulo() + " | " + subasta.getPrezo() + " € | " + subasta.getGanhador().getLocalName());
                 break;
             // En caso de que a subasta ainda non estea en curso, engadimos a 
             // subasta a taboa se non estaba
@@ -84,7 +84,7 @@ public class InterfazVendedor extends javax.swing.JFrame {
                             " - ", subasta.getEstado()};
                     } else {
                         fila = new Object[]{subasta.getIdSubasta(), subasta.getTitulo(),
-                            subasta.getRonda(), subasta.getPrezo(), subasta.getGanhador(),
+                            subasta.getRonda(), subasta.getPrezo(), subasta.getGanhador().getLocalName(),
                             subasta.getEstado()};
 
                     }
