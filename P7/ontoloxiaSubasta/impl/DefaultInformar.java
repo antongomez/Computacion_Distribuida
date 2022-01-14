@@ -4,13 +4,14 @@ package ontoloxiaSubasta.impl;
 import ontoloxiaSubasta.*;
 
 /**
+* Informase ao comprador do estado da subasta
 * Protege name: Informar
 * @author OntologyBeanGenerator v4.1
-* @version 2021/12/25, 21:18:31
+* @version 2022/01/14, 16:46:30
 */
 public class DefaultInformar implements Informar {
 
-  private static final long serialVersionUID = -9065970472412463086L;
+  private static final long serialVersionUID = 3590751218202108299L;
 
   private String _internalInstanceName = null;
 

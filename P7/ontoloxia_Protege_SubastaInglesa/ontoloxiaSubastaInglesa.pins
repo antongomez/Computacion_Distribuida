@@ -1,4 +1,4 @@
-; Sat Dec 25 21:32:16 CET 2021
+; Fri Jan 14 16:37:30 CET 2022
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -11,7 +11,7 @@
 
 	(%3AJADE-IGNORE FALSE))
 
-([Interesa] of  %3AJADE-CLASS
+([Interesar] of  %3AJADE-CLASS
 
 	(%3AJADE-IGNORE FALSE))
 

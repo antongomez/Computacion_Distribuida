@@ -1,4 +1,4 @@
-; Sat Dec 25 21:32:16 CET 2021
+; Fri Jan 14 16:37:30 CET 2022
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -52,7 +52,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Informar
+(defclass Informar "Informase ao comprador do estado da subasta"
 	(is-a AgentAction)
 	(role concrete)
 	(single-slot subasta
@@ -61,7 +61,7 @@
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
-(defclass enviarRecibo
+(defclass enviarRecibo "Enviaselle ao comprador o recibo da compra"
 	(is-a AgentAction)
 	(role concrete)
 	(single-slot comprador
@@ -87,7 +87,16 @@
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
-(defclass Subasta
+(defclass Interesar "Preguntaselle ao comprador se lle interesa a subasta"
+	(is-a AgentAction)
+	(role concrete)
+	(single-slot subasta
+		(type INSTANCE)
+;+		(allowed-classes Subasta)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Subasta "Información necesaria dunha subasta dun libro"
 	(is-a Concept)
 	(role concrete)
 	(single-slot incremento
@@ -117,14 +126,5 @@
 		(create-accessor read-write))
 	(single-slot prezo
 		(type FLOAT)
-;+		(cardinality 1 1)
-		(create-accessor read-write)))
-
-(defclass Interesa
-	(is-a Predicate)
-	(role concrete)
-	(single-slot subasta
-		(type INSTANCE)
-;+		(allowed-classes Subasta)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))

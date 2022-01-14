@@ -138,7 +138,7 @@ public class SubastarLibro extends Behaviour {
                 EnviarRecibo er = new DefaultEnviarRecibo();
                 er.setIdSubasta(subasta.getIdSubasta());
                 er.setTitulo(titulo);
-                er.setPrezo(prezo);
+                er.setPrezo(subasta.getPrezo());
                 er.setVendedor(myAgent.getAID());
                 er.setComprador(axenteGanhador);
 

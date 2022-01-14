@@ -1,4 +1,4 @@
-; Sat Dec 25 21:32:16 CET 2021
+; Fri Jan 14 16:37:30 CET 2022
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -19,7 +19,7 @@
 
 ([BROWSER_SLOT_NAMES] of  Property_List
 
-	(properties [ontoloxiaSubastaInglesa_ProjectKB_Class20173]))
+	(properties [ontoloxiaSubastaInglesa_ProjectKB_Class10177]))
 
 ([CLSES_TAB] of  Widget
 
@@ -71,9 +71,9 @@
 ([KB_088524_Class1] of  Map
 
 	(entries
-		[ontoloxiaSubastaInglesa_ProjectKB_Class20174]
-		[ontoloxiaSubastaInglesa_ProjectKB_Class20175]
-		[ontoloxiaSubastaInglesa_ProjectKB_Class20176]))
+		[ontoloxiaSubastaInglesa_ProjectKB_Class10178]
+		[ontoloxiaSubastaInglesa_ProjectKB_Class10179]
+		[ontoloxiaSubastaInglesa_ProjectKB_Class10180]))
 
 ([KB_088524_Class100] of  Property_List
 )
@@ -167,13 +167,58 @@
 ([KB_088524_Class99] of  Property_List
 )
 
-([KB_194260_Class167] of  Map
+([KB_976881_Class167] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
 	(properties [VERTICAL_STRETCHER]))
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10168] of  Boolean
+
+	(boolean_value FALSE)
+	(name "ButtonDisplayed-View References to Value"))
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10169] of  Boolean
+
+	(boolean_value FALSE)
+	(name "ButtonDisplayed-Delete Instance"))
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10170] of  Property_List
+)
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10171] of  Property_List
+)
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10172] of  Property_List
+)
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10177] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10178] of  Map_Entry
+
+	(key "suppress_instance_counting")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10179] of  Map_Entry
+
+	(key "add_name_on_instance_form")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([ontoloxiaSubastaInglesa_ProjectKB_Class10180] of  Map_Entry
+
+	(key "change_tracking_active")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
 
 ([ontoloxiaSubastaInglesa_ProjectKB_Class109] of  String
 
@@ -346,51 +391,6 @@
 	(is_hidden TRUE)
 	(property_list [ontoloxiaSubastaInglesa_ProjectKB_Class202])
 	(widget_class_name "org.protege.owl.mm.protege3.MappingMasterTab"))
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20168] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-View References to Value"))
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20169] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-Delete Instance"))
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20170] of  Property_List
-)
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20171] of  Property_List
-)
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20172] of  Property_List
-)
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20173] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20174] of  Map_Entry
-
-	(key "suppress_instance_counting")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20175] of  Map_Entry
-
-	(key "add_name_on_instance_form")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
-
-([ontoloxiaSubastaInglesa_ProjectKB_Class20176] of  Map_Entry
-
-	(key "change_tracking_active")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
 
 ([ontoloxiaSubastaInglesa_ProjectKB_Class202] of  Property_List
 )

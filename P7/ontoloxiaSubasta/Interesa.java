@@ -5,7 +5,7 @@ package ontoloxiaSubasta;
 /**
 * Protege name: Interesa
 * @author OntologyBeanGenerator v4.1
-* @version 2021/12/25, 21:18:31
+* @version 2022/01/14, 16:46:30
 */
 public interface Interesa extends jade.content.Predicate {
 

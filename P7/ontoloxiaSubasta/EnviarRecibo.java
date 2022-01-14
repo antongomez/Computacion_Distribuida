@@ -3,9 +3,10 @@ package ontoloxiaSubasta;
 
 
 /**
+* Enviaselle ao comprador o recibo da compra
 * Protege name: enviarRecibo
 * @author OntologyBeanGenerator v4.1
-* @version 2021/12/25, 21:18:31
+* @version 2022/01/14, 16:46:30
 */
 public interface EnviarRecibo extends jade.content.AgentAction {
 

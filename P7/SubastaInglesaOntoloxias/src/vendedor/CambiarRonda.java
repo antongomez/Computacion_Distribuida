@@ -34,7 +34,7 @@ public class CambiarRonda extends WakerBehaviour {
         } else {
             if (comportamento.getRonda() > 0) {
                 comportamento.getSubasta().setEstado(Subasta.ESTADO_2);
-                comportamento.getSubasta().setPrezo(comportamento.getSubasta().getPrezo()- comportamento.getSubasta().getIncremento());
+                comportamento.getSubasta().setPrezo(comportamento.getSubasta().getPrezo() - comportamento.getSubasta().getIncremento());
                 comportamento.actualizarSubasta();
 
                 comportamento.setStep(3);

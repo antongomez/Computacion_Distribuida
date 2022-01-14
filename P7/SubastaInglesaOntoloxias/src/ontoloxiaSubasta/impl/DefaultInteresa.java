@@ -6,11 +6,11 @@ import ontoloxiaSubasta.*;
  * Protege name: Interesa
  *
  * @author OntologyBeanGenerator v4.1
- * @version 2021/12/24, 17:59:57
+ * @version 2022/01/14, 16:46:30
  */
 public class DefaultInteresa implements Interesa {
 
-    private static final long serialVersionUID = 5385195621906642128L;
+    private static final long serialVersionUID = 3590751218202108299L;
 
     private String _internalInstanceName = null;
 
