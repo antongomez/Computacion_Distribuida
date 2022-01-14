@@ -1,6 +1,5 @@
 package vendedor;
 
-import comprador.Comprador;
 import jade.content.lang.Codec;
 import jade.content.lang.sl.SLCodec;
 import jade.content.onto.Ontology;

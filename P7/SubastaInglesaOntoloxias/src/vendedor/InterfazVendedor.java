@@ -271,11 +271,17 @@ public class InterfazVendedor extends javax.swing.JFrame {
 
     private void btnIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntroducirActionPerformed
         if (!txtTitulo.getText().isBlank() && !txtPrezo.getText().isBlank() && !txtIncremento.getText().isBlank()) {
-            vendedor.actualizarCatalogo(txtTitulo.getText(), Float.parseFloat(txtPrezo.getText()), Integer.parseInt(txtIncremento.getText()));
-            txtTitulo.setText("");
-            txtPrezo.setText("");
-            txtIncremento.setText("");
-            btnIntroducir.setEnabled(false);
+            try {
+                if ((Float.parseFloat(txtPrezo.getText()) > 0) && (Integer.parseInt(txtIncremento.getText()) > 0)) {
+                    vendedor.actualizarCatalogo(txtTitulo.getText(), Float.parseFloat(txtPrezo.getText()), Integer.parseInt(txtIncremento.getText()));
+                    txtTitulo.setText("");
+                    txtPrezo.setText("");
+                    txtIncremento.setText("");
+                    btnIntroducir.setEnabled(false);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("O prezo ou o incremento non e un numero flotante");
+            }
         }
     }//GEN-LAST:event_btnIntroducirActionPerformed
 
